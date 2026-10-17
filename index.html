@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejemplo 2 - Contraste de colores | ejemplo-2-contraste</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #F5F5F5; color: #1F1F1F; margin: 0; padding: 20px; }
+    .comparar { display: flex; flex-wrap: wrap; gap: 20px; }
+    .tarjeta { background: white; border-radius: 10px; padding: 16px; width: 320px; }
+    .mal { border-top: 8px solid #B3261E; }
+    .bien { border-top: 8px solid #2E7D32; }
+    .boton { font-size: 18px; padding: 12px 20px; border: 0; border-radius: 6px; color: #FFFFFF; }
+    .nota { font-size: 14px; color: #595959; }
+    .mal .ayuda { color: #AAAAAA; }
+    .mal .boton { background: #81C784; }
+    .bien .ayuda { color: #595959; }
+    .bien .boton { background: #2E7D32; }
+    .sol .tarjeta { filter: contrast(0.5) brightness(1.4); }
+    #btn-sol { font-size: 18px; padding: 10px 16px; margin-bottom: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <p><small>Carpeta: ejemplo-2-contraste</small></p>
+  <h1>Ejemplo 2: contraste de colores</h1>
+  <p>El texto normal necesita un contraste de 4.5 a 1 o más. Compara los colores y simula una pantalla bajo el sol.</p>
+  <button id="btn-sol">Simular sol fuerte</button>
+  <div class="comparar" id="zona">
+    <div class="tarjeta mal">
+      <h2>Así NO</h2>
+      <p class="ayuda">Escribe tu correo de la universidad.</p>
+      <button class="boton">Pagar</button>
+      <p class="nota">Contraste: 2.3 a 1 y 2.0 a 1; no cumple</p>
+    </div>
+    <div class="tarjeta bien">
+      <h2>Así SÍ</h2>
+      <p class="ayuda">Escribe tu correo de la universidad.</p>
+      <button class="boton">Pagar</button>
+      <p class="nota">Contraste: 7.0 a 1 y 5.1 a 1; cumple</p>
+    </div>
+  </div>
+  <p>Con el sol fuerte el texto de la tarjeta roja casi desaparece y el de la verde se sigue leyendo. Prueba cambiar el gris oscuro <code>#595959</code> por <code>#AAAAAA</code> en la tarjeta verde.</p>
+  <script>
+    var boton = document.getElementById('btn-sol');
+    var zona = document.getElementById('zona');
+    boton.addEventListener('click', function () {
+      zona.classList.toggle('sol');
+      if (zona.classList.contains('sol')) {
+        boton.textContent = 'Volver a la normalidad';
+      } else {
+        boton.textContent = 'Simular sol fuerte';
+      }
+    });
+  </script>
+</body>
+</html>
